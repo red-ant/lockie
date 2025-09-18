@@ -36,5 +36,5 @@ Warden::Manager.after_set_user do |record, warden, options|
     warden.logout
   end
 
-  warden.request.session[session_key] = Time.now + Lockie.config.session_timeout
+  warden.request.session[session_key] = (Time.now + Lockie.config.session_timeout).to_s
 end
